@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ritik | Portfolio</title>
+    <meta name="description" content="Ritik Pandey's portfolio featuring Python, SQL, Data Analytics, Artificial Intelligence and Machine Learning projects.">
+
+    <style>
+        :root {
+            --bg: #f8f7f2;
+            --surface: #ffffff;
+            --text: #252720;
+            --muted: #70736c;
+            --accent: #536b50;
+            --border: #e4e3dc;
+            --soft: #eeefe8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button, a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            width: min(1050px, 88%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(248, 247, 242, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 17px;
+            font-weight: 750;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Common sections */
+
+        section {
+            padding: 82px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-label {
+            display: block;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.25;
+            letter-spacing: -0.7px;
+        }
+
+        h2 {
+            font-size: clamp(26px, 4vw, 34px);
+            margin-bottom: 28px;
+        }
+
+        h3 {
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        /* Hero */
+        
+
+        .hero {
+            padding: 110px 0 90px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-wrap {
+           display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text {
+    flex:1;
+}
+
+.hero-img {
+  width: 300px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 300px) {
+  .hero-wrap {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--soft);
+            color: var(--accent);
+            border-radius: 30px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 68px);
+            max-width: 800px;
+            line-height: 1.08;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(17px, 2.5vw, 21px);
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 19px;
+            border: 1px solid var(--accent);
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #40553e;
+        }
+
+        .button-secondary:hover {
+            background: var(--soft);
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .about-copy p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .info-card {
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+        }
+
+        .info-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-item strong {
+            font-size: 14px;
+        }
+
+        /* Skills */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 23px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .skill-card h3 {
+            font-size: 16px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--soft);
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 12px;
+            color: #43483f;
+        }
+
+        /* Projects */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            padding: 26px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(30, 35, 25, 0.06);
+        }
+
+        .project-number {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 17px;
+        }
+
+        .project-card ul {
+            padding-left: 19px;
+            margin-bottom: 22px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .project-card li {
+            margin-bottom: 7px;
+        }
+
+        .project-card .tags {
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .achievement {
+            display: inline-block;
+            align-self: flex-start;
+            margin-bottom: 14px;
+            padding: 5px 9px;
+            background: var(--soft);
+            border-radius: 5px;
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* Education */
+
+        .education-card {
+            padding: 27px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            max-width: 750px;
+        }
+
+        .education-date {
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .education-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Certificates */
+
+        .certificate-list {
+            display: grid;
+            gap: 12px;
+            max-width: 800px;
+        }
+
+        .certificate-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+        }
+
+        .certificate-icon {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            background: var(--soft);
+            color: var(--accent);
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .certificate-item h3 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .certificate-item p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* Contact */
+
+        .contact-box {
+            padding: 35px;
+            background: var(--soft);
+            border-radius: 14px;
+        }
+
+        .contact-box > p {
+            color: var(--muted);
+            max-width: 620px;
+            margin-bottom: 24px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 10px 14px;
+            font-size: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-links a:hover {
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 26px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 14px 0;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 75px 0 65px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                gap: 25px;
+            }
+
+            .project-card,
+            .skill-card {
+                padding: 21px;
+            }
+
+            .contact-box {
+                padding: 24px;
+            }
+        }
+/* Education cards side by side */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.education-grid .education-card {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px;
+    margin: 0;
+    min-width: 0;
+}
+
+.education-grid .education-card h3 {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.education-grid .education-card p {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+}
+        
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav class="container">
+        <a href="#home" class="logo">Ritik Pandey</a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects"></a>
+            <a href="#education">Education</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HERO -->
+ <section class="hero" id="home">
+    <div class="container">
+        <div class="hero-wrap">
+
+            <div class="hero-text">
+                <span class="hero-tag">BBA Student · Open to Opportunities</span>
+
+                <h1>Ritik Pandey</h1>
+
+                <p class="hero-subtitle">
+                    Aspiring Finance Professional | Financial Analysis &amp; Excel
+                </p>
+
+                <p class="hero-description">
+                    I am a student aspiring to build a career in the finance sector.
+                    I am interested in financial analysis, Prime Tally, budgeting, and using Microsoft Excel to analyze data and support business decisions.
+                </p>
+
+                <a href="#contact" class="button button-secondary">
+                    Get in Touch
+                </a>
+            </div>
+
+            <img src="WhatsApp Image 2026-10-28 at 10.46.22.jpeg" alt="Ritik Pandey" class="hero-img">
+
+        </div>
+    </div>
+</section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <span class="section-label">Introduction</span>
+            <h2>About Me</h2>
+
+            <div class="about-grid">
+                <div class="about-copy">
+                    <p>
+                      I am Ritik Pandey, a student aspiring to build a career in the finance sector.
+                       I am interested in financial management, budgeting, and understanding how businesses manage their finances. I have a Microsoft Excel certificate and am continuously working on improving my analytical, numerical, and problem-solving skills.
+
+                    <p>
+                       My goal is to gain practical knowledge of finance, develop strong Excel skills,
+                        and understand financial statements and business performance.
+                    </p>
+
+                    <p>
+                      I am looking forward to learning from industry professionals and 
+                      exploring internship opportunities in finance, Prime Tally, accounting, and financial analysis.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-item">
+                        <small>Education</small>
+                        <strong>Bachelor of Business Administrstion</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <small>Study Period</small>
+                        <strong>2025 – 2028</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <small>Focus Areas</small>
+                        <strong>Finanace, Microsoft Excel, Financial Analysis</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <small>Location</small>
+                        <strong>Gorakhpur, Uttar Pradesh, India</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <span class="section-label">Technical Expertise</span>
+            <h2>Skills</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h3>Finanace & Accounting</h3>
+                    <div class="tags">
+                        <span class="tag">Finanace Basics</span>
+                        <span class="tag">Budgeting</span>
+                        <span class="tag"> Accounting Fundamentals </span>
+                        <span class="tag"> Profit and Loss </span>
+                        
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3> Tools and Software</h3>
+                    <div class="tags">
+                        <span class="tag"> Microsoft Excel </span>
+                        <span class="tag"> Excel Formulas </span>
+                        <span class="tag">Data Organization</span>
+                        <span class="tag">Charts & Pivot Tables</span>
+                      <span class="tag">Prime Tally</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Financial Analysis </h3>
+                    <div class="tags">
+                        <span class="tag"> Financial Statement Basics </span>
+                        <span class="tag"> Experts Analysis </span>
+                        <span class="tag"> Revenue Analysis </span>
+                        <span class="tag"> Numerical Analysis </span>
+                        
+                    </div>
+                </div>
+
+        
+                <div class="skill-card">
+                    <h3>Professional Skills</h3>
+                    <div class="tags">
+                        <span class="tag">Analytical Thinking</span>
+                        <span class="tag">Problem-Solving</span>
+                        <span class="tag"> Communication </span>
+                        <span class="tag"> Attention to Detail </span>
+                        <span class="tag">Team Collaboration</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+ 
+<!-- EDUCATION -->
+    <section id="education">
+        <div class="container">
+            <span class="section-label">Academic Background</span>
+            <h2>Education</h2>
+<div class="education-grid">
+
+                <!-- BBA Card -->
+                <div class="education-card">
+                    <div class="education-date">2025 – 2028</div>
+                    <h3>Bachelor of Business Administration (BBA)</h3>
+                    <p>Kailash Institute of Management</p>
+                    <p>Deen Dayal Upadhyaya (DDU) Gorakhpur University</p>
+                </div>
+
+                <!-- Class 12th Card -->
+                <div class="education-card">
+                    <div class="education-date">2025</div>
+                    <h3>Intermediate (Commerce)</h3>
+                    <p>Mahatma Gandhi Intermediate College, Gorakhpur</p>
+                    <p>UP Board</p>
+                </div>
+
+            </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certificates">
+        <div class="container">
+            <span class="section-label">Learning & Development</span>
+            <h2>Certifications & Training</h2>
+
+            <div class="certificate-list">
+                <div class="certificate-item">
+                    <div class="certificate-icon">01</div>
+                    <div>
+                        <h3>Microsoft Excel</h3>
+                          <p>Academy of Computers (AOC)</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <span class="section-label">Get in Touch</span>
+
+            <div class="contact-box">
+                <h2>Let's Connect</h2>
+                <p>
+I am looking for internship opportunities in finance and accounting to develop my skills,
+ gain practical experience, and learn from industry professionals.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:ritikpandeyritik5@gmail.com">
+                        Email Ritik
+                    </a>
+                    <a href="https://www.linkedin.com/in/ritik-pandey-267001447" target="_blank"
+                       rel="noopener noreferrer">
+                        LinkedIn Profile
+                    </a>
+                </div>
+
+                <p style="margin-top:18px; margin-bottom:0; font-size:13px">
+                    Phone: +91 6307636337
+                </p>
+                <p style="margin-bottom:0; font-size:13px">
+                    Gorakhpur, Uttar Pradesh
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <span>© <span id="year"></span> Ritik Pandey. All rights reserved.</span>
+        <a href="#home">Back to top ↑</a>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
